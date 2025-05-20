@@ -7,17 +7,51 @@
     <title>Magic Cursor</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <style>
+        body {
+            background-color: rgb(250, 117, 161);
+            overflow: hidden;
+            height: 100vh;
+            position: relative;
+        }
 
+        .gradiant {
+            width: 200px;
+            height: 200px;
+            pointer-events: none;
+            box-shadow: 0 0 100px 1px rgb(6, 151, 255);
+            background: radial-gradient(rgb(6, 151, 255), rgba(6, 151, 255, 0.138));
+            border-radius: 100%;
+            position: absolute;
+            z-index: -1;
+        }
     </style>
 </head>
 
 <body>
-    <h1 class="text-3xl font-bold underline">
-        Hello world!
-    </h1>
+    <div class="w-[90%] mx-auto">
+        <h1 class="flex justify-center items-center text-3xl uppercase font-extrabold my-8 bg-white">
+            Hello bangladesh!
+        </h1>
 
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, obcaecati. Ab minus nemo praesentium.
+            Perspiciatis qui voluptatem fugit sequi dignissimos ex veniam neque iure iusto non officiis, similique,
+            harum quod aliquam enim voluptate laborum fuga et nulla optio aperiam quasi? Corrupti quae repellendus
+            reiciendis exercitationem.
+        </p>
+    </div>
+    <div id="gradiant" class="gradiant"></div>
 
     <script>
+        const gradiant = document.getElementById("gradiant");
+        console.log(gradiant);
+        document.addEventListener("mousemove", (e) => {
+            const mouse_axisX = e.clientX;
+            const mouse_axisY = e.clientY;
+            gradiant.style.left = `${mouse_axisX - 100}px`;
+            gradiant.style.top = `${mouse_axisY - 100}px`;
+
+        })
 
     </script>
 </body>
