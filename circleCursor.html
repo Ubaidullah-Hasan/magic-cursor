@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Circle cursor</title>
+    <link rel="stylesheet" href="css/circleCursor.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body>
+    <div id="cursor" class="cursor"></div>
+
+    <script>
+        const cursor = document.querySelector(".cursor");
+        document.addEventListener("mousemove", (e) => {
+            console.log(e);
+            const moveY = e.pageY-10;
+            const moveX = e.pageX-10;
+            cursor.setAttribute('style', 'top: ' + moveY + "px; left: "+ moveX + "px");
+            // cursor.style.left = moveX + 'px';
+            // cursor.style.top = moveY + 'px';
+        })
+
+        // remove expand class after 500ms 
+        document.addEventListener('click', (e) => {
+            cursor.classList.add("expand");
+            setTimeout(() => {
+                cursor.classList.remove("expand");
+            }, 500)
+        })
+    </script>
+</body>
+
+</html>
